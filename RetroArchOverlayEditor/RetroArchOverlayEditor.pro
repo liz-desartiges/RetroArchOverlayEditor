@@ -38,10 +38,13 @@ SOURCES += \
     libretro-common/encodings/encoding_utf.c \
     libretro-common/file/config_file.c \
     libretro-common/file/file_path.c \
+    libretro-common/file/file_path_io.c \
     libretro-common/lists/string_list.c \
     libretro-common/memmap/memmap.c \
     libretro-common/streams/file_stream.c \
-    libretro-common/vfs/vfs_implementation.c
+    libretro-common/vfs/vfs_implementation.c \
+    libretro-common/string/stdstring.c \
+    libretro-common/time/rtime.c
 
 HEADERS += \
     about.h \

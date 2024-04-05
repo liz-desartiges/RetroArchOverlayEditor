@@ -283,8 +283,8 @@ const QString& OverlayEditor::saveToFile(const QString& path){
       QString item = "overlay" + QString::number(currentOverlay);
 
       config_set_string(fileInput, (item + "_name").toStdString().c_str(), item.toStdString().c_str());
-      config_set_bool(fileInput, (item + "_full_screen").toStdString().c_str(), true);
-      config_set_bool(fileInput, (item + "_normalized").toStdString().c_str(), true);
+      config_set_string(fileInput, (item + "_full_screen").toStdString().c_str(), "true");
+      config_set_string(fileInput, (item + "_normalized").toStdString().c_str(), "true");
 
       if(layers[currentOverlay].hasRangeMod)
          config_set_double(fileInput, (item + "_range_mod").toStdString().c_str(), layers[currentOverlay].rangeMod);
@@ -312,7 +312,7 @@ const QString& OverlayEditor::saveToFile(const QString& path){
             if(objects[object].hasPicture){
                config_set_string(fileInput, (item + "_overlay").toStdString().c_str(), (item + ".png").toStdString().c_str());
             if(objects[object].movable)
-               config_set_bool(fileInput, (item + "_movable").toStdString().c_str(), true);
+               config_set_string(fileInput, (item + "_movable").toStdString().c_str(), "true");
             if(objects[object].hasAlphaMod)
                config_set_double(fileInput, (item + "_alpha_mod").toStdString().c_str(), objects[object].alphaMod);
             if(objects[object].hasRangeMod)
@@ -336,7 +336,7 @@ const QString& OverlayEditor::saveToFile(const QString& path){
    }
 
    //save out file
-   saveWorked = config_file_write(fileInput, path.toStdString().c_str());
+   saveWorked = config_file_write(fileInput, path.toStdString().c_str(), false);
    config_file_free(fileInput);
    if(!saveWorked)
       return ERROR_CANT_SAVE_FILE;
