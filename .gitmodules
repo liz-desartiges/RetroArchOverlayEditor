@@ -1,0 +1,3 @@
+[submodule "RetroArchOverlayEditor/libretro-common"]
+	path = RetroArchOverlayEditor/libretro-common
+	url = https://github.com/libretro/libretro-common
